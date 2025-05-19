@@ -3,7 +3,7 @@ const dotenv = require("dotenv");
 const cors = require("cors");
 const connectDB = require("./config/db");
 const lobbyRoutes = require("./routes/lobbyRoutes");
-const { getUsers } = require("./controllers/lobbyController");
+const { getUsers, getLobbyName } = require("./controllers/lobbyController");
 
 dotenv.config();
 
@@ -44,6 +44,9 @@ io.on("connection", (socket) => {
     socket.to(lobbyId).emit("userJoined", { user });
     getUsers(lobbyId).then((userList) => {
       io.to(lobbyId).emit("activeUsers", { userList });
+    });
+    getLobbyName(lobbyId).then((lobbyName) => {
+      io.to(lobbyId).emit("lobbyName", lobbyName);
     });
   });
   // Handle chat messages

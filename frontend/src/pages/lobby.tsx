@@ -27,6 +27,7 @@ export const Lobby = () => {
   const [sentMessages, setSentMessages] = useState<Message[]>([]);
   const [inputMessage, setInputMessage] = useState("");
   const [userList, setUserList] = useState<UserData[]>([]);
+  const [lobbyName, setLobbyName] = useState("");
 
   // Set current user
   useEffect(() => {
@@ -55,6 +56,9 @@ export const Lobby = () => {
 
     newSocket.on("receiveMessage", (msg: Message) => {
       setMessages((prev) => [...prev, msg]);
+    });
+    newSocket.on("lobbyName", (lobbyName: string) => {
+      setLobbyName(lobbyName);
     });
 
     newSocket.on("activeUsers", ({ userList }: { userList: UserData[] }) => {
@@ -126,7 +130,7 @@ export const Lobby = () => {
       <section className="flex flex-col justify-start items-start pr-16 min-w-[280px]">
         <LogoSmall />
         <h3 className="max-w-[18rem] break-words text-2xl font-bold pt-12">
-          #justChilling
+          {lobbyName}
         </h3>
         <p className="pb-8">Lobby ID: {lobbyId}</p>
         <section className="flex flex-col py-4 w-full h-[50vh] overflow-y-scroll">

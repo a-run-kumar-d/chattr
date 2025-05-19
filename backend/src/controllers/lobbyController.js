@@ -83,5 +83,23 @@ const getUsers = async (lobbyID) => {
     return "Server error";
   }
 };
+const getLobbyName = async (lobbyID) => {
+  try {
+    const lobby = await Lobby.findById(lobbyID);
+    if (!lobby) {
+      return "Lobby not found";
+    }
+    return lobby.lobbyName;
+  } catch (err) {
+    return "Server error";
+  }
+};
 
-module.exports = { createLobby, getLobbies, joinLobby, leaveLobby, getUsers };
+module.exports = {
+  createLobby,
+  getLobbies,
+  joinLobby,
+  leaveLobby,
+  getUsers,
+  getLobbyName,
+};
