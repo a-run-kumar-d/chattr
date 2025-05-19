@@ -1,111 +1,62 @@
-### 🗨️ chattr.io
+# chattr.io 💬
 
-chattr.io is a full-stack chat application designed for seamless real-time conversations. Built with React, TypeScript, Node.js, Express, and MongoDB and socket.io it features an intuitive interface, robust backend architecture — making it a reliable communication tool for users.
+**chattr.io** is a real-time chat application that allows users to create or join chat lobbies and communicate instantly. Built with modern web technologies, this project demonstrates real-time data flow using WebSockets and a full-stack implementation with authentication and database support.
 
-🚀 Tech Stack
-Frontend
-Vite — blazing-fast build tool
+## 🚀 Features
 
-React — UI library
+- 🔐 **User Authentication** using Firebase Auth
+- 🏠 **Lobby System**: Create a new chat lobby or join an existing one via code or from the public list
+- 🧑‍🤝‍🧑 **Real-Time User Presence**: See who is currently in the lobby
+- 💬 **Real-Time Messaging** powered by Socket.io
+- ⚡ **Built with Vite** for fast frontend development
 
-TypeScript — static typing for scalable code
+## 🛠️ Tech Stack
 
-Tailwind CSS — utility-first CSS framework for styling
+| Layer      | Technology             |
+|------------|------------------------|
+| Language   | TypeScript             |
+| Frontend   | React + Vite           |
+| Backend    | Node.js + Express      |
+| Database   | MongoDB                |
+| Auth       | Firebase Authentication|
+| Realtime   | Socket.io              |
 
-Backend
-Node.js — JavaScript runtime
+## 📸 demoVideo
 
-Express — backend framework
+- https://drive.google.com/file/d/1yf3YfZKn5mRO_Abrsm0OW9Qfo9cc-B2K/view?usp=drive_link
 
-MongoDB — NoSQL database for persistent storage
 
-🌟 Features
-🔐 Authentication (Register/Login with secure password hashing) using firebase
+## 🔧 Setup Instructions
 
-💬 Real-time Messaging
+### 1. Clone the Repository
 
-👥 User Presence — shows who is online
+```bash
+git clone https://github.com/yourusername/chattr.io.git
+cd chattr
+cd backend
+npm install
+# Set environment variables in a .env file (Mongo URI, Firebase credentials, etc.)
+npm start
+```
 
-✅ Message Status (delivered/read)
-
-📱 Responsive UI — optimised for both desktop and mobile
-
-🧠 Architecture Overview
-Frontend (Vite + React + TypeScript): Handles UI rendering, API communication, and WebSocket connections.
-
-Backend (Node.js + Express): Handles API routing, user authentication, and WebSocket (Socket.IO or similar) for real-time chat.
-
-Database (MongoDB): Stores user credentials, chat history, and metadata (timestamps, read status, etc).
-
-🔧 Getting Started
-Prerequisites
-Node.js (v16+ recommended)
-
-MongoDB running locally or a connection string to a MongoDB Atlas cluster
-
-Installation
-Clone the repository:
-
-bash
-Copy
-Edit
-git clone https://github.com/your-username/chattr.io.git
-cd chattr.io
-Setup frontend:
-
-bash
-Copy
-Edit
+### 2. front end
+```bash
+npm run dev
 cd client
 npm install
 npm run dev
-Setup backend:
+```
 
-bash
-Copy
-Edit
-cd server
-npm install
-npm run dev
-Environment Variables
+### 3. .env File setup
+- frontend
+  ```bash
+  VITE_API_URL : (server link)
+  ```
+- backend
+  ```bash
+  MONGODB_URI=your_mongodb_connection_string
+  PORT=5000
+  ```
+###Built with ❤️ by Arunkumar D
 
-🛠️ Quality of Life Improvements (Planned)
-🌈 Theming — Light/Dark mode toggle
 
-🔔 In-App Notifications — For new messages and online status
-
-🗑️ Message Deletion — Remove messages from both ends
-
-📂 File Sharing — Share images, files, and media
-
-🔍 Search Chats — Keyword search inside conversations
-
-🧪 Typing Indicators — Show when someone is typing
-
-🌍 Multilingual Support — For a more global audience
-
-💾 Auto Save Drafts — Don’t lose unsent messages
-
-🧩 Future Enhancements
-📱 PWA Support — Install chattr.io as a native app
-
-📦 Docker Containerisation — Easy deployment
-
-☁️ Cloud Functions / Serverless Backend — For scalability
-
-🧠 AI-based Smart Replies (experimental idea)
-
-🔐 OAuth Integration (Google, GitHub login)
-
-🤝 Contributing
-Contributions, suggestions, and feedback are welcome!
-
-Fork the repository
-
-Create a new branch (git checkout -b feature/your-feature)
-
-Commit your changes (git commit -am 'Add new feature')
-
-Push to the branch (git push origin feature/your-feature)
-
-Open a Pull Request
